@@ -1,7 +1,9 @@
-import { Container } from "inversify";
+import { Container } from 'inversify';
+import { StartGameUseCase } from './application/startGame';
+import { LocalStorage } from './domain/services/localStorage';
 
 export default function registerServices(container: Container) {
-    /* Examples
+  /* Examples
     container.unbindAll();
   
     container
@@ -20,4 +22,7 @@ export default function registerServices(container: Container) {
     container.bind(ProvinceRepository).toSelf();
     container.bind(StreetRepository).toSelf();
     */
-  };
+  container.unbindAll();
+  container.bind(StartGameUseCase).toSelf();
+  container.bind(LocalStorage).toSelf();
+}
